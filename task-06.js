@@ -2,19 +2,32 @@ let input;
 const numbers = [];
 let total = 0;
 
-let input = prompt('Введите число'); 
-    if (input === null) {
-        alert('Отменено пользователем!');
-        break;
-    }
+while (true) {
+  let input = prompt('Введите число'); 
+  if (input === null) {
+     break;
+  }
 
 input = Number(input);
-  const notANumber = Number.isNaN(input);
-  if (notANumber) {
-    alert('Было введено не число, попробуйте еще раз');
-      continue;
+numbers.push(input);
+const notANumber = Number.isNaN(input);
+if (notANumber) {
+  console.log('Было введено не число, попробуйте еще раз');
+  continue;
+}
+}
+
+const summa = function (numbers) {
+  for (const number of numbers) {
+    total += number;
   }
-  total += input;
+  if (total === 0) {
+    return 'Отмена пользователем';
+  } else {
+  return `Общая сумма чисел равна ${total}`;
+  }
+  };
+  
+console.log(summa(numbers));
 
-
-  console.log(`Общая сумма чисел равна ${total}`);
+ 
